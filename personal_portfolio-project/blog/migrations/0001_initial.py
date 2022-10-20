@@ -11,7 +11,7 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name="Project",
+            name="Blog",
             fields=[
                 (
                     "id",
@@ -22,10 +22,9 @@ class Migration(migrations.Migration):
                         verbose_name="ID",
                     ),
                 ),
-                ("title", models.CharField(max_length=100)),
-                ("description", models.CharField(max_length=250)),
-                ("image", models.ImageField(upload_to="portfolio/images/")),
-                ("url", models.URLField(blank=True)),
+                ("title", models.CharField(max_length=200)),
+                ("description", models.TextField()),
+                ("date", models.DateField()),
             ],
         ),
     ]

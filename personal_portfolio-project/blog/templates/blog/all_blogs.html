@@ -1,0 +1,11 @@
+
+
+
+<div>
+   <h1>Это мой блог!!!</h1>
+   {% for item in blogs %}
+      <h2>{{ item.title }}</h2>
+      <h5>{{ item.date }}</h5>
+      <p>{{ item.description }}</p>
+   {% endfor %}
+</div>
