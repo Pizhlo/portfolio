@@ -1,0 +1,13 @@
+
+<div>
+   <h1>Это мое портфолио!!!</h1>
+   {% for item in obj %}
+      <h2>{{ item.title }}</h2>
+      <p>{{ item.description }}</p>
+      <img src="{{ item.image.url }}">
+   <br>
+      {% if project.url %}
+         <a href="{{ project.url }}">Link</a>
+      {% endif %}
+   {% endfor %}
+</div>
