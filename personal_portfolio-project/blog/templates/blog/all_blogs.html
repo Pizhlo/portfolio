@@ -1,11 +1,16 @@
 
+{% extends 'portfolio/base.html' %}
 
+{% block content %}
 
-<div>
-   <h1>Это мой блог!!!</h1>
-   {% for item in blogs %}
-      <h2>{{ item.title }}</h2>
-      <h5>{{ item.date }}</h5>
-      <p>{{ item.description }}</p>
-   {% endfor %}
-</div>
+   <div>
+      <h1>Это мой блог!!!</h1>
+      <h2>Я написала следующие посты:</h2>
+      {% for item in blogs %}
+         <a href="{% url 'blog:detail' item.id %}"><h2>{{ item.title }}</h2></a>
+         <h5>{{ item.date|date:'d M Y'}}</h5>
+         <p>{{ item.description | truncatechars:100 }}</p>
+      {% endfor %}
+   </div>
+
+{% endblock %}

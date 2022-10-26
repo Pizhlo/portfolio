@@ -1,13 +1,49 @@
+{% extends 'portfolio/base.html' %}
+{% load static %}
 
-<div>
-   <h1>Это мое портфолио!!!</h1>
-   {% for item in obj %}
-      <h2>{{ item.title }}</h2>
-      <p>{{ item.description }}</p>
-      <img src="{{ item.image.url }}">
-   <br>
-      {% if project.url %}
-         <a href="{{ project.url }}">Link</a>
-      {% endif %}
-   {% endfor %}
-</div>
+{% block content %}
+
+    <div class="container">
+          <div class="row">
+               <div class="col">
+                    <div class="d-flex justify-content-center">
+                        <img src="{% static 'portfolio/me_photo.png' %}" class ="rounded-circle" height="379" width="375">
+                    </div>
+               </div>
+          </div>
+          <div class="row">
+              <div class="col">
+                   <div class="d-flex justify-content-center">
+                       <div class="shadow p-3 mb-5 bg-white rounded">
+                           Михота Мария. 22 года.<br>Москва, Россия. Образование: МТУСИ.<br>Интересы - веб-разработка: Django, Bootstrap.
+                       </div>
+                   </div>
+              </div>
+          </div>
+          <div class="row">
+              <div class="col">
+                  <div class="d-flex justify-content-center">
+                    <h2>Мои проекты</h2>
+                  </div>
+              </div>
+          </div>
+        <div class="row">
+            {% for item in obj %}
+              <div class="col">
+                    <div class="d-flex justify-content-center">
+                            <h2>{{ item.title }}</h2>
+                            {{ item.description }}
+                           <img src="{{ item.image.url }}" height="350" width="550">
+                            {% if item.url %}
+                               <a href="{{ item.url }}" target="_blank">Github</a>
+                            {% endif %}
+                    </div>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+{% endblock %}
+
+
+
+
