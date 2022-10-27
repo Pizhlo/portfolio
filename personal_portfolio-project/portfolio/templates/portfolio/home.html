@@ -3,45 +3,50 @@
 
 {% block content %}
 
-    <div class="container">
-          <div class="row">
-               <div class="col">
-                    <div class="d-flex justify-content-center">
-                        <img src="{% static 'portfolio/me_photo.png' %}" class ="rounded-circle" height="379" width="375">
-                    </div>
-               </div>
-          </div>
-          <div class="row">
-              <div class="col">
-                   <div class="d-flex justify-content-center">
-                       <div class="shadow p-3 mb-5 bg-white rounded">
-                           Михота Мария. 22 года.<br>Москва, Россия. Образование: МТУСИ.<br>Интересы - веб-разработка: Django, Bootstrap.
-                       </div>
-                   </div>
-              </div>
-          </div>
-          <div class="row">
-              <div class="col">
-                  <div class="d-flex justify-content-center">
-                    <h2>Мои проекты</h2>
-                  </div>
-              </div>
-          </div>
-        <div class="row">
-            {% for item in obj %}
-              <div class="col">
-                    <div class="d-flex justify-content-center">
-                            <h2>{{ item.title }}</h2>
-                            {{ item.description }}
-                           <img src="{{ item.image.url }}" height="350" width="550">
-                            {% if item.url %}
-                               <a href="{{ item.url }}" target="_blank">Github</a>
-                            {% endif %}
-                    </div>
-              </div>
-            {% endfor %}
-          </div>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="d-flex justify-content-center">
+                <img src="{% static 'portfolio/me_photo.png' %}" class="rounded-circle" height="379" width="375">
+            </div>
         </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="d-flex justify-content-center">
+                <div class="shadow p-3 mb-5 bg-white rounded">
+                    Михота Мария. 22 года.<br>Москва, Россия.<br>Образование: МТУСИ (направление подготовки:<br>11.03.02
+                    Инфокоммуникационные технологии и системы связи).<br>Интересы - веб-разработка: Django,
+                    Bootstrap.<br>Контакты: <a href="https://t.me/p1ngw1n1234" target="_blank"><img
+                        src="{% static 'portfolio/tg_pic.png' %}"
+                        height="20" width="20"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <div class="d-flex justify-content-center">
+                <h2>Мои проекты</h2>
+            </div>
+        </div>
+    </div>
+    {% for item in obj %}
+    <div class="row">
+        <div class="d-flex justify-content-center">
+            <div class="col">
+                <h2>{{ item.title }}<br></h2>
+                <p class="fs-5">{{ item.description }}
+                    {% if item.url %}
+                    <a href="{{ item.url }}" class="text-decoration-none" target="_blank">Ссылка на Github</a>
+                    {% endif %}<br></p>
+                <img src="{{ item.image.url }}" height="350" width="550"><br>
+
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
 {% endblock %}
 
 
